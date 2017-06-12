@@ -1,0 +1,5 @@
+[Unit]
+Description=Nim Planet
+
+[Timer]
+OnCalendar=*:0/10

@@ -1,0 +1,57 @@
+[Unit]
+Description=Nim Planet
+
+[Service]
+Type=oneshot
+User=nimplanet
+ExecStart=planet --no-publish nim_planet.ini
+
+[Unit]
+Description=netdata - Real-time performance monitoring
+Documentation=man:netdata
+Documentation=file:///usr/share/doc/netdata/html/index.html
+Documentation=https://github.com/firehol/netdata
+After=network-online.target httpd.service squid.service nfs-server.service mysqld.service named.service postfix.service
+ConditionPathExists=/etc/netdata/netdata.conf
+
+[Service]
+Type=simple
+Environment="netdata_LOG_LOCATION=/var/log/netdata/log"
+ExecStart=/usr/sbin/netdata -D
+ExecReload=/usr/sbin/netdata reload
+TimeoutStopSec=10
+KillMode=mixed
+KillSignal=SIGTERM
+OOMScoreAdjust=-900
+
+User=netdata
+Group=netdata
+Restart=on-abnormal
+RestartSec=2s
+LimitNOFILE=65536
+
+WorkingDirectory=/tmp
+
+# Hardening
+
+SystemCallFilter=~@clock,~@cpu-emulation,~@debug,~@ipc,~@keyring,~@module
+SystemCallFilter=~@mount,~@obsolete,~@privileged,~@raw-io,~@reboot
+SystemCallFilter=~@resources,~@swap
+
+NoNewPrivileges=true
+PermissionsStartOnly=true
+CapabilityBoundingSet=
+PrivateDevices=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+ReadOnlyDirectories=/
+ReadWriteDirectories=/proc/self
+ReadWriteDirectories=/var/lib/nim_planet
+
+StandardOutput=syslog+console
+StandardError=syslog+console
