@@ -1,0 +1,6 @@
+### Nim Planet
+
+Nim RSS feed planet at https://planet.nim-lang.org
+
+To add a new input feed, edit https://github.com/FedericoCeratto/nim-planet/blob/master/nim_planet.ini#L26 and send a PR.
+Thanks!
