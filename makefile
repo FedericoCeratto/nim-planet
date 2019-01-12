@@ -9,3 +9,10 @@ deploy:
 	sudo rsync -avP nim_planet.ini /var/lib/nim_planet/
 	sudo rsync -avP asf /var/lib/nim_planet/
 	sudo chown nimplanet /var/lib/nim_planet/ -R
+	sudo systemctl daemon-reload
+	# run immediately
+	sudo systemctl restart nim_planet.service
+	sudo systemctl restart nim_planet.timer
+
+monitor:
+	sudo journalctl --identifier=planet -f

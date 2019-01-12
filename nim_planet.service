@@ -1,42 +1,17 @@
 [Unit]
 Description=Nim Planet
+After=network-online.target httpd.service squid.service nfs-server.service mysqld.service named.service postfix.service
 
 [Service]
 Type=oneshot
 User=nimplanet
 ExecStart=planet --no-publish nim_planet.ini
 
-[Unit]
-Description=netdata - Real-time performance monitoring
-Documentation=man:netdata
-Documentation=file:///usr/share/doc/netdata/html/index.html
-Documentation=https://github.com/firehol/netdata
-After=network-online.target httpd.service squid.service nfs-server.service mysqld.service named.service postfix.service
-ConditionPathExists=/etc/netdata/netdata.conf
-
-[Service]
-Type=simple
-Environment="netdata_LOG_LOCATION=/var/log/netdata/log"
-ExecStart=/usr/sbin/netdata -D
-ExecReload=/usr/sbin/netdata reload
-TimeoutStopSec=10
-KillMode=mixed
-KillSignal=SIGTERM
-OOMScoreAdjust=-900
-
-User=netdata
-Group=netdata
-Restart=on-abnormal
-RestartSec=2s
-LimitNOFILE=65536
-
-WorkingDirectory=/tmp
-
+WorkingDirectory=/var/lib/nim_planet
 # Hardening
-
-SystemCallFilter=~@clock,~@cpu-emulation,~@debug,~@ipc,~@keyring,~@module
-SystemCallFilter=~@mount,~@obsolete,~@privileged,~@raw-io,~@reboot
-SystemCallFilter=~@resources,~@swap
+#SystemCallFilter=~@clock,~@cpu-emulation,~@debug,~@ipc,~@keyring,~@module
+#SystemCallFilter=~@mount,~@obsolete,~@privileged,~@raw-io,~@reboot
+#SystemCallFilter=~@resources,~@swap
 
 NoNewPrivileges=true
 PermissionsStartOnly=true
