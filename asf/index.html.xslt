@@ -33,8 +33,8 @@
       <xsl:text>&#10;&#10;</xsl:text>
       <body>
         <xsl:text>&#10;</xsl:text>
-        <h1><xsl:value-of select="atom:title"/></h1>
-
+        <h1 id="planetbanner"><img src="https://nim-lang.org/assets/img/logo.svg" width="110px" alt="logo" />
+          Blog feeds</h1>
         <xsl:text>&#10;&#10;</xsl:text>
         <div id="body">
           <xsl:apply-templates select="atom:entry"/>
