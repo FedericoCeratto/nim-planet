@@ -45,7 +45,6 @@ a[rel~='license'] {
 
 body > h1 {
 	font-size: x-large;
-	text-transform: uppercase;
 	letter-spacing: 0.25em;
 	padding: 10px;
 	margin: 0px 0px 0px 0px;
@@ -61,10 +60,11 @@ body > h1 {
 
 #sidebar {
 	float: right;
-	top: 150px;
+	top: 50px;
 	right: 0px;
 	width: 210px;
 	background-color: white;
+	position: absolute;
 
 	padding: 0px 0px 10px 0px;
 	margin: 0px 0px 20px 20px;

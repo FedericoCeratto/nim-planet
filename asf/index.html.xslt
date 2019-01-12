@@ -24,7 +24,7 @@
           <link rel="alternate" href="{atom:link[@rel='self']/@href}"
             title="{atom:title}" type="{atom:link[@rel='self']/@type}" />
         </xsl:if>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAUAAAAF////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAIAAABbAAAAlQAAAKIAAACbAAAAmwAAAKIAAACVAAAAWwAAAAL///8A////AP///wD///8A////AAAAABQAAADAAAAAYwAAAA3///8A////AP///wD///8AAAAADQAAAGMAAADAAAAAFP///wD///8A////AP///wAAAACdAAAAOv///wD///8A////AP///wD///8A////AP///wD///8AAAAAOgAAAJ3///8A////AP///wAAAAAnAAAAcP///wAAAAAoAAAASv///wD///8A////AP///wAAAABKAAAAKP///wAAAABwAAAAJ////wD///8AAAAAgQAAABwAAACIAAAAkAAAAJMAAACtAAAAFQAAABUAAACtAAAAkwAAAJAAAACIAAAAHAAAAIH///8A////AAAAAKQAAACrAAAAaP///wD///8AAAAARQAAANIAAADSAAAARf///wD///8AAAAAaAAAAKsAAACk////AAAAADMAAACcAAAAnQAAABj///8A////AP///wAAAAAYAAAAGP///wD///8A////AAAAABgAAACdAAAAnAAAADMAAAB1AAAAwwAAAP8AAADpAAAAsQAAAE4AAAAb////AP///wAAAAAbAAAATgAAALEAAADpAAAA/wAAAMMAAAB1AAAAtwAAAOkAAAD/AAAA/wAAAP8AAADvAAAA3gAAAN4AAADeAAAA3gAAAO8AAAD/AAAA/wAAAP8AAADpAAAAtwAAAGUAAAA/AAAA3wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADfAAAAPwAAAGX///8A////AAAAAEgAAADtAAAAvwAAAL0AAADGAAAA7wAAAO8AAADGAAAAvQAAAL8AAADtAAAASP///wD///8A////AP///wD///8AAAAAO////wD///8A////AAAAAIcAAACH////AP///wD///8AAAAAO////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD4HwAA7/cAAN/7AAD//wAAoYUAAJ55AACf+QAAh+EAAAAAAADAAwAA4AcAAP5/AAD//wAA//8AAA=="/>
         <script defer="defer" src="personalize.js">
           <xsl:comment><!--HTML Compatibility--></xsl:comment>
         </script>
@@ -48,20 +48,7 @@
           <h2>Info</h2>
 
           <dl>
-            <dt>Last updated:</dt>
-            <dd>
-              <time datetime="{atom:updated}" title="GMT">
-                <xsl:value-of select="atom:updated/@planet:format"/>
-              </time>
-            </dd>
-            <dt>Powered by:</dt>
-            <dd>
-              <a href="http://intertwingly.net/code/venus/">
-                <img src="images/venus.png" width="80" height="15"
-                  alt="Venus" border="0"/>
-              </a>
-            </dd>
-            <dt>Export:</dt>
+            <dt>Follow:</dt>
             <dd>
               <ul>
                 <li>
@@ -80,6 +67,16 @@
                   </a>
                 </li>
               </ul>
+            </dd>
+            <dt>Contribute:</dt>
+            <dd>
+              <a href="https://github.com/FedericoCeratto/nim-planet">Add your blog here</a>
+            </dd>
+            <dt>Last updated:</dt>
+            <dd>
+              <time datetime="{atom:updated}" title="GMT">
+                <xsl:value-of select="atom:updated/@planet:format"/>
+              </time>
             </dd>
           </dl>
         </div>
